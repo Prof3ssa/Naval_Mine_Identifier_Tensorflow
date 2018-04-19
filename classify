@@ -1,0 +1,9 @@
+prey_y = sess.run(y, feed_dict={x: test_x})
+mse = tf.reduce_mean(tf.square(pred_y - test_y))
+print("MSE: %.4f " % sess.run(mse))
+    
+for i in range(40,100):
+    prediction_run = sess.run(prediction, feed_dict={x: X[i].reshape(1, 60)})
+    accuracy_run = sess.run(accuracy, feed_dict={x: X[i].reshape(1, 60)})
+    print("OG Class : ",y[i], "Predicted : ",prediction_run)
+    
